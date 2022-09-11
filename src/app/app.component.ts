@@ -15,7 +15,6 @@ export class AppComponent {
   @Output() listOfTodos: string[] = [];
 
   onChange(event: any) {
-    console.log(event.target.value);
     this.newTodo = event.target.value;
   }
   addTodo() {

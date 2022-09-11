@@ -6,11 +6,12 @@ import { Component, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./result.component.scss'],
 })
 export class ResultComponent implements OnInit {
-  @Input() i: number | undefined;
   completed: boolean = false;
   @Input() todo: string | undefined;
   @Input() listOfTodos: string[] = [];
-
+  edit: boolean = false;
+  newValue: string | undefined = '';
+  newEditValue: string | undefined;
   constructor() {}
 
   ngOnInit(): void {}
@@ -20,13 +21,28 @@ export class ResultComponent implements OnInit {
   }
 
   onEdit(event: any) {
-    console.log('edit');
+    this.edit = true;
+    this.newValue = this.todo;
   }
 
   onDelete(value: any) {
-    console.log('deleted!');
     const index: number = this.listOfTodos.indexOf(value);
     this.listOfTodos.splice(index, 1);
+  }
+
+  onEditChange(event: any) {
+    this.newValue = event.target.value;
+  }
+
+  onSave(value: any) {
+    const index: number = this.listOfTodos.indexOf(value);
+    this.listOfTodos.splice(index, 1);
+    this.listOfTodos.push(value);
+    this.edit = false;
     console.log(this.listOfTodos);
+  }
+
+  onCancel() {
+    this.edit = false;
   }
 }

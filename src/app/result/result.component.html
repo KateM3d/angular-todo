@@ -1,14 +1,29 @@
 <div class="result-container">
-    <p class='todo' [ngClass]="{'todo-done':completed}">{{todo}}</p>
-    <div class="btns">
-        <button class="btn-icon" (click)="onDelete(todo)">
-        <img class="icon" src="../../assets/delete.png" alt="delete icon">
-    </button>
-        <button class="icon" class="btn-icon" (click)="onEdit($event)">
-        <img src="../../assets/edit.png" alt="edit icon">
-    </button>
-        <button class="icon" class="btn-icon" (click)="onCompleted($event)">
-        <img src="../../assets/checkmark.png" alt="checkmark icon" >
-    </button>
+    <div *ngIf="edit; else notEdit">
+        <div class="todo-edit">
+            <input class='todo-edit-input' type="text" [value]="newValue" (change)="onEditChange($event)">
+            <div class="btns-edit">
+                <button class="btn-icon" (click)="onSave(newValue)">
+            <img class="icon" src="../../assets/save.png" alt="save icon">
+        </button>
+                <button class="btn-icon" (click)="onCancel()">
+            <img class="icon" src="../../assets/cancel.png" alt="cancel icon">
+        </button>
+            </div>
+        </div>
     </div>
+    <ng-template #notEdit>
+        <p class='todo' [ngClass]="{'todo-done':completed}">{{todo}}</p>
+        <div class="btns">
+            <button class="btn-icon" (click)="onDelete(todo)">
+                <img class="icon" src="../../assets/delete.png" alt="delete icon">
+            </button>
+            <button class="icon" class="btn-icon" (click)="onEdit($event)">
+                <img src="../../assets/edit.png" alt="edit icon">
+            </button>
+            <button class="icon" class="btn-icon" (click)="onCompleted($event)">
+                <img src="../../assets/checkmark.png" alt="checkmark icon" >
+            </button>
+        </div>
+    </ng-template>
 </div>
