@@ -1,0 +1,14 @@
+<div class="result-container">
+    <p class='todo' [ngClass]="{'todo-done':completed}">{{todo}}</p>
+    <div class="btns">
+        <button class="btn-icon" (click)="onDelete(todo)">
+        <img class="icon" src="../../assets/delete.png" alt="delete icon">
+    </button>
+        <button class="icon" class="btn-icon" (click)="onEdit($event)">
+        <img src="../../assets/edit.png" alt="edit icon">
+    </button>
+        <button class="icon" class="btn-icon" (click)="onCompleted($event)">
+        <img src="../../assets/checkmark.png" alt="checkmark icon" >
+    </button>
+    </div>
+</div>

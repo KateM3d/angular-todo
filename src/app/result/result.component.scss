@@ -1,0 +1,33 @@
+.result-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: baseline;
+    margin-top: 20px;
+    font-size: 18px;
+    border: 1px solid orange;
+    width: 350px;
+}
+
+.btn-icon {
+    border: none;
+    width: 20px;
+    height: 20px;
+    margin: 5px;
+    background-color: transparent;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.btns {
+    margin-right: 20px;
+}
+
+.todo {
+    font-size: 24px;
+    margin: auto;
+    &-done {
+        text-decoration: line-through;
+    }
+}
