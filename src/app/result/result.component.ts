@@ -7,11 +7,10 @@ import { Component, Input, OnInit, Output } from '@angular/core';
 })
 export class ResultComponent implements OnInit {
   completed: boolean = false;
-  @Input() todo: string | undefined;
+  @Input() todo: string = '';
   @Input() listOfTodos: string[] = [];
   edit: boolean = false;
-  newValue: string | undefined = '';
-  newEditValue: string | undefined;
+  newValue: string = '';
   constructor() {}
 
   ngOnInit(): void {}
@@ -35,11 +34,9 @@ export class ResultComponent implements OnInit {
   }
 
   onSave(value: any) {
-    const index: number = this.listOfTodos.indexOf(value);
-    this.listOfTodos.splice(index, 1);
-    this.listOfTodos.push(value);
+    const index = this.listOfTodos.indexOf(this.todo);
+    this.listOfTodos.splice(index, 1, value);
     this.edit = false;
-    console.log(this.listOfTodos);
   }
 
   onCancel() {

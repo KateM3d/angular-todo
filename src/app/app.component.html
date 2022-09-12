@@ -4,6 +4,7 @@
     <div class="container-search">
         <input class="container-search-input" type="text" placeholder="Plese enter the city..." (keyup)="onChange($event)" [value]="newTodo">
         <button class="btn" (click)="addTodo()">Add</button>
+        <p class="error" *ngIf="!notNull">Oops please enter your todo</p>
     </div>
 
     <app-result *ngFor="let todo of listOfTodos; let i=index" [todo]="todo" [listOfTodos]="listOfTodos"></app-result>

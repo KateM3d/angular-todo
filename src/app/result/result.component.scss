@@ -5,8 +5,12 @@
     justify-content: baseline;
     margin-top: 20px;
     font-size: 18px;
-    border: 1px solid orange;
+    border: 1px solid yellow;
+    border-radius: 20px;
     width: 350px;
+    background: rgb(143, 37, 10);
+    background: linear-gradient(90deg, rgba(143, 37, 10, 1) 3%, rgba(201, 131, 15, 1) 58%);
+    color: white
 }
 
 .btn-icon {
@@ -31,7 +35,7 @@
     font-size: 24px;
     margin: auto;
     &-done {
-        text-decoration: line-through;
+        text-decoration: line-through black;
     }
     &-edit {
         display: flex;
@@ -42,6 +46,7 @@
             width: 200px;
             height: 10px;
             padding: 10px;
+            background-color: white;
         }
     }
 }

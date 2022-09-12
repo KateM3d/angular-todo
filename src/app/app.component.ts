@@ -9,7 +9,7 @@ export class AppComponent {
   title = 'my-app';
   subTitle: string = 'to do';
   newTodo: string = '';
-  i: number | undefined;
+  notNull: boolean = true;
 
   @Output() todo: string | undefined | null;
   @Output() listOfTodos: string[] = [];
@@ -18,8 +18,12 @@ export class AppComponent {
     this.newTodo = event.target.value;
   }
   addTodo() {
-    this.listOfTodos.push(this.newTodo);
-    this.newTodo = '';
-    console.log(this.listOfTodos);
+    if (this.newTodo) {
+      this.listOfTodos.push(this.newTodo);
+      this.newTodo = '';
+      this.notNull = true;
+    } else {
+      this.notNull = false;
+    }
   }
 }
